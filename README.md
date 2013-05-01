@@ -1,6 +1,6 @@
 # Forecast::IO::Cache
 
-A local caching setup for (forecast.io)(//forecast.io)
+A local caching setup for [Forecast.IO](https://developer.forecast.io)
 
 ## Installation
 
