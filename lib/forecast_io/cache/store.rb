@@ -12,7 +12,7 @@ module Forecast
         end
 
         def fetch lat, lon, time
-          @backend.fetch 'position' => { '$near' => [lon,lat], '$maxDistance' => @config.radius },
+          @backend.fetch 'position' => { '$near' => [lon,lat], '$maxDistance' => radius },
                          'time' => { '$lt' => time+offset, '$gt' => time-offset }
         rescue Mongo::OperationFailure => error
           if index_error? error
@@ -29,6 +29,10 @@ module Forecast
         end
 
         private
+          def radius
+            @config.radius * (1/111.694)
+          end
+
           def offset
             @config.timeframe*60
           end
