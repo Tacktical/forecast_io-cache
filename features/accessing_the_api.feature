@@ -11,6 +11,7 @@ Feature: Accessing the api
           {
             "forecast":         "/forecast/:key/:latitude,:longitude",
             "forecast_at_time": "/forecast/:key/:latitude,:longitude,:time"
-          }
+          },
+          "status": "Not Found"
         }
       """
