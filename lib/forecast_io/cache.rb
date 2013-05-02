@@ -6,6 +6,14 @@ module Forecast
   module IO
     module Cache
 
+      def self.configure
+        yield configuration
+      end
+      def self.configuration
+        @config ||= Configuration.new
+      end
+
+
       def self.initialize!
         @app ||= App.new
       end
