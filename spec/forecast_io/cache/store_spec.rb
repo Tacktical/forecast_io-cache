@@ -5,7 +5,7 @@ describe database: true do
   let(:config) { double radius: 1, timeframe: 3 }
   let(:store)  { Forecast::IO::Cache::Store.new config }
   let(:mongo)  { MongoAdaptor.new('forecasts',data) }
-  let(:data)   { Forecast::IO::Cache::Store::ForecastData }
+  let(:data)   { Forecast::IO::Cache::ForecastData }
 
   describe 'retrieving forecasts from the store' do
     let(:forecast_1) { data.new [151.23775,-33.858264], 1 }

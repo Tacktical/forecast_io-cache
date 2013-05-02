@@ -1,11 +1,10 @@
 require 'mongo_adaptor'
+require 'forecast_io/cache/forecast_data'
 
 module Forecast
   module IO
     module Cache
       class Store
-        ForecastData = Struct.new(:position, :time, :temperature, :wind_speed, :wind_bearing,
-                                  :humidity, :pressure, :visibility, :precip_intensity)
 
         def initialize config = Cache.configuration
           @config = config
