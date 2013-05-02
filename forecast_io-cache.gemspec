@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/Tacktical/forecast_io-cache"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files`.split($/)
+  spec.files         = `git ls-files lib/** spec/** features/** LICENSE.txt README.md forecast_io-cache.gemspec`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(spec|features)/})
   spec.require_paths = ["lib"]
