@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.forecast.io/forecast/API_KEY/-33.857444,151.238823,123456789
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - nginx/1.1.19
+      date:
+      - Thu, 02 May 2013 09:51:16 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      x-powered-by:
+      - Express
+      cache-control:
+      - max-age=86400
+      expires:
+      - Fri, 03 May 2013 09:51:16 +0000
+      etag:
+      - '"-102868148"'
+      x-response-time:
+      - 113ms
+    body:
+      encoding: UTF-8
+      string: '{"latitude":-33.857444,"longitude":151.238823,"timezone":"Australia/Sydney","offset":11,"currently":{"time":123456789,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":68.47,"dewPoint":58.01,"windSpeed":1.87,"windBearing":186,"cloudCover":0.25,"humidity":0.7,"pressure":1013.1,"visibility":10},"hourly":{"summary":"Partly
+        cloudy throughout the day.","icon":"partly-cloudy-day","data":[{"time":123426000,"summary":"Clear","icon":"clear-night","precipType":"rain","temperature":64.24,"dewPoint":53.66,"windSpeed":6.74,"windBearing":299,"cloudCover":0,"humidity":0.69},{"time":123429600,"summary":"Clear","icon":"clear-night","precipType":"rain","temperature":63.69,"dewPoint":53.33,"windSpeed":4.99,"windBearing":269,"cloudCover":0,"humidity":0.69},{"time":123433200,"summary":"Clear","icon":"clear-night","precipType":"rain","temperature":63.49,"dewPoint":52.61,"windSpeed":3.49,"windBearing":210,"cloudCover":0,"humidity":0.68},{"time":123436800,"summary":"Clear","icon":"clear-night","precipType":"rain","temperature":62.99,"dewPoint":52.07,"windSpeed":2.24,"windBearing":180,"cloudCover":0,"humidity":0.68},{"time":123440400,"summary":"Clear","icon":"clear-night","precipType":"rain","temperature":59,"dewPoint":52.15,"windSpeed":0,"cloudCover":0,"humidity":0.78,"pressure":1011.4,"visibility":10},{"time":123444000,"summary":"Clear","icon":"clear-night","precipType":"rain","temperature":59.58,"dewPoint":54.04,"windSpeed":0.62,"windBearing":293,"cloudCover":0.02,"humidity":0.82,"pressure":1011.4,"visibility":10},{"time":123447600,"summary":"Clear","icon":"clear-day","precipType":"rain","temperature":60.26,"dewPoint":55.72,"windSpeed":1.34,"windBearing":293,"cloudCover":0.07,"humidity":0.85},{"time":123451200,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":57,"dewPoint":54.09,"windSpeed":0,"cloudCover":0.31,"humidity":0.9,"pressure":1013.1,"visibility":10},{"time":123454800,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":64.24,"dewPoint":56.64,"windSpeed":1.12,"windBearing":186,"cloudCover":0.29,"humidity":0.78,"pressure":1013.1,"visibility":10},{"time":123458400,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":71.89,"dewPoint":59.11,"windSpeed":2.48,"windBearing":186,"cloudCover":0.21,"humidity":0.64},{"time":123462000,"summary":"Clear","icon":"clear-day","precipType":"rain","temperature":72,"dewPoint":56.88,"windSpeed":3,"windBearing":210,"cloudCover":0,"humidity":0.59,"pressure":1016,"visibility":10},{"time":123465600,"summary":"Clear","icon":"clear-day","precipType":"rain","temperature":74,"dewPoint":56.54,"windSpeed":5.89,"windBearing":152,"cloudCover":0.14,"humidity":0.55,"pressure":1016,"visibility":10},{"time":123469200,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":75.87,"dewPoint":56.21,"windSpeed":8.07,"windBearing":90,"cloudCover":0.31,"humidity":0.51},{"time":123472800,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":75,"dewPoint":53.96,"windSpeed":3,"windBearing":90,"cloudCover":0.31,"humidity":0.48,"pressure":1016.1,"visibility":10},{"time":123476400,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":75.28,"dewPoint":56.24,"windSpeed":8.45,"windBearing":88,"cloudCover":0.31,"humidity":0.52,"pressure":1016.1,"visibility":10},{"time":123480000,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":75.82,"dewPoint":58.6,"windSpeed":13.8,"windBearing":86,"cloudCover":0.31,"humidity":0.55},{"time":123483600,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":77,"dewPoint":56.92,"windSpeed":8,"windBearing":80,"cloudCover":0.31,"humidity":0.5,"pressure":1015.6,"visibility":10},{"time":123487200,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":75.2,"dewPoint":57.66,"windSpeed":9.92,"windBearing":87,"cloudCover":0.31,"humidity":0.55,"pressure":1015.6,"visibility":10},{"time":123490800,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":73,"dewPoint":59.2,"windSpeed":11.98,"windBearing":90,"cloudCover":0.31,"humidity":0.62},{"time":123494400,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-day","precipType":"rain","temperature":72.15,"dewPoint":60.69,"windSpeed":10.94,"windBearing":78,"cloudCover":0.31,"humidity":0.67},{"time":123498000,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-night","precipType":"rain","temperature":71.52,"dewPoint":62.46,"windSpeed":8.93,"windBearing":59,"cloudCover":0.31,"humidity":0.73},{"time":123501600,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-night","precipType":"rain","temperature":71,"dewPoint":63.87,"windSpeed":7.23,"windBearing":45,"cloudCover":0.31,"humidity":0.78},{"time":123505200,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-night","precipType":"rain","temperature":70.6,"dewPoint":64.68,"windSpeed":6.49,"windBearing":43,"cloudCover":0.31,"humidity":0.81},{"time":123508800,"summary":"Partly
+        Cloudy","icon":"partly-cloudy-night","precipType":"rain","temperature":70.31,"dewPoint":65.15,"windSpeed":6.04,"windBearing":41,"cloudCover":0.31,"humidity":0.84}]},"daily":{"data":[{"time":123426000,"summary":"Partly
+        cloudy throughout the day.","icon":"partly-cloudy-day","sunriseTime":123446333,"sunsetTime":123497495,"temperatureMin":57,"temperatureMinTime":123451200,"temperatureMax":77,"temperatureMaxTime":123483600,"dewPoint":57.19,"windSpeed":5.62,"windBearing":100,"cloudCover":0.2,"humidity":0.67,"pressure":1014.44,"visibility":10}]},"flags":{"sources":["isd"],"isd-stations":["947650-99999","947670-99999","947675-99999","947680-99999","949999-00242"],"units":"us"}}'
+    http_version: 
+  recorded_at: Thu, 02 May 2013 09:51:16 GMT
+recorded_with: VCR 2.4.0
