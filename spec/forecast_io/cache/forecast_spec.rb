@@ -2,9 +2,9 @@ require 'forecast_io/cache/forecast'
 
 describe 'producing a forecast' do
 
-  let(:forecast) { Forecast::IO::Cache::Forecast.new store, api }
+  let(:forecast) { Forecast::IO::Cache::Forecast.new store, generate }
 
-  %w[api lat lon time data store].map do |name|
+  %w[generate lat lon time data store].map do |name|
     let(name) { double name }
   end
 

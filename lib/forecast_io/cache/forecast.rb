@@ -3,8 +3,8 @@ module Forecast
     module Cache
       class Forecast
 
-        def initialize cache = Store.new, api = Generate.new
-          @cache, @api = cache, api
+        def initialize cache = Store.new, generate = Generate
+          @cache, @generate = cache, generate
         end
 
         def for lat, lon, time
