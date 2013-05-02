@@ -1,5 +1,7 @@
 require "forecast_io/cache/version"
 require "forecast_io/cache/configuration"
+require "forecast_io/cache/forecast"
+require "forecast_io/cache/store"
 require "forecast_io/cache/app"
 
 module Forecast
