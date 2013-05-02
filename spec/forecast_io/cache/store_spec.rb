@@ -4,7 +4,6 @@ require 'forecast_io/cache/store'
 describe database: true do
   let(:config) { double radius: 1, timeframe: 3 }
   let(:store)  { Forecast::IO::Cache::Store.new config }
-  let(:mongo)  { MongoAdaptor.new('forecasts',data) }
   let(:data)   { Forecast::IO::Cache::ForecastData }
 
   describe 'retrieving forecasts from the store' do
@@ -12,8 +11,8 @@ describe database: true do
     let(:forecast_2) { data.new [151.23675,-33.858664], 3 }
 
     before do
-      mongo.insert forecast_1
-      mongo.insert forecast_2
+      store.store forecast_1
+      store.store forecast_2
     end
 
     it 'will return the closet forecast' do
@@ -28,6 +27,11 @@ describe database: true do
   end
 
   describe 'inserting forecasts into the store' do
+    let(:forecast) { data.new [151.23775,-33.858264], 1 }
+
+    it 'returns the forecast' do
+      expect(store.store forecast).to eq forecast
+    end
   end
 
 end

@@ -23,6 +23,11 @@ module Forecast
           end
         end
 
+        def store forecast
+          @backend.insert forecast
+          forecast
+        end
+
         private
           def offset
             @config.timeframe*60
