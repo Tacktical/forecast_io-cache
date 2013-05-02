@@ -9,7 +9,7 @@ module Forecast
         TIME = /(\d+)/
 
         get %r[/forecast/#{ENV['API_KEY']}/#{LATITUDE},#{LONGITUDE}(?:,#{TIME})?], provides: :json do |latitude,longitude,time|
-          respond_as_json 200, Forecast.new.for(latitude, longitude, (time || Time.now).to_i)
+          respond_as_json 200, Forecast.new.for(latitude.to_f, longitude.to_f, (time || Time.now).to_i).to_json
         end
 
         not_found do
