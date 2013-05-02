@@ -1,3 +1,4 @@
+require 'json'
 require 'sinatra/base'
 
 module Forecast
@@ -6,10 +7,15 @@ module Forecast
       class App < Sinatra::Base
 
         not_found do
-          [404,{ "Content-Type" => "application/json" }, JSON.dump( actions: actions )]
+          respond_as_json 404, status: 'Not Found', actions: actions
         end
 
         private
+
+          def respond_as_json code, body
+            [code, { "Content-Type" => "application/json" }, JSON.dump(body) ]
+          end
+
           def actions
             {
               forecast:         "/forecast/:key/:latitude,:longitude",
