@@ -11,12 +11,19 @@ describe 'generating new cached results' do
   end
 
   before do
-    Forecast::IO::Cache::ForecastData.stub(:generate) { |lat,lon,time,data| send data }
+    Forecast::IO::Cache::ForecastData.stub(:generate) { |lat,lon,data| send data }
     cache.stub(:store) { |data| data }
   end
 
   it 'gets the forecast from the api' do
     api.should_receive(:forecast).with(lat,lon,time: time)
+    generate.forecasts
+  end
+
+  it 'generate forecase data objects' do
+    Forecast::IO::Cache::ForecastData.should_receive(:generate).with(lat,lon,"data_1")
+    Forecast::IO::Cache::ForecastData.should_receive(:generate).with(lat,lon,"data_2")
+    Forecast::IO::Cache::ForecastData.should_receive(:generate).with(lat,lon,"data_3")
     generate.forecasts
   end
 

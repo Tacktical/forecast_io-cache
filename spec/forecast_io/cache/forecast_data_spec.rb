@@ -1,10 +1,11 @@
 require 'forecast_io/cache/forecast_data'
 
 describe 'representing data from the api' do
-  subject { Forecast::IO::Cache::ForecastData.generate "1.1", "-1.2", time, data }
+  subject { Forecast::IO::Cache::ForecastData.generate "1.1", "-1.2", data }
 
   let(:data) do
     {
+      'time'            => time,
       'windSpeed'       => wind_speed,
       'windBearing'     => wind_bearing,
       'humidity'        => humidity,

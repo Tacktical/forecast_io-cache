@@ -33,7 +33,7 @@ module Forecast
           end
 
           def generate data
-            ForecastData.generate @lat, @lon, @time, data
+            ForecastData.generate @lat, @lon, data
           end
 
       end

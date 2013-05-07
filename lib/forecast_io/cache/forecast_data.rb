@@ -4,10 +4,10 @@ module Forecast
       class ForecastData < Struct.new(:position, :time, :wind_speed, :wind_bearing,
                                       :humidity, :pressure, :visibility, :temperature)
 
-        def self.generate lat, lon, time, forecast
+        def self.generate lat, lon, forecast
           new.tap do |data|
-            data.time     = time
             data.position = [lon,lat].map(&:to_f)
+            data.time             = forecast['time']
             data.wind_speed       = forecast['windSpeed']
             data.wind_bearing     = forecast['windBearing']
             data.humidity         = forecast['humidity']
