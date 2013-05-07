@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    forecast_io-cache (0.0.1)
+    forecast_io-cache (0.0.2)
       forecast_io
       mongo_adaptor
       sinatra
@@ -38,7 +38,7 @@ GEM
       mongo
       mongo-configure
     morphine (0.1.1)
-    multi_json (1.7.2)
+    multi_json (1.7.3)
     multipart-post (1.2.0)
     puma (2.0.1)
       rack (>= 1.1, < 2.0)
