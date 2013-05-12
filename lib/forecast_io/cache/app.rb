@@ -12,6 +12,10 @@ module Forecast
           respond_as_json 200, Forecast.new.for(latitude.to_f, longitude.to_f, (time || Time.now).to_i).to_json
         end
 
+        get '/' do
+          respond_as_json 200,  actions: actions
+        end
+
         not_found do
           respond_as_json 404, status: 'Not Found', actions: actions
         end

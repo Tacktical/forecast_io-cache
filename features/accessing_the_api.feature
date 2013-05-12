@@ -11,6 +11,19 @@ Feature: Accessing the api
           {
             "forecast":         "/forecast/:key/:latitude,:longitude",
             "forecast_at_time": "/forecast/:key/:latitude,:longitude,:time"
+          }
+        }
+      """
+
+  Scenario: Access an unkown page
+    When I request '/un-known'
+    Then I am given the json response detailing the available actions:
+      """
+        {
+          "actions":
+          {
+            "forecast":         "/forecast/:key/:latitude,:longitude",
+            "forecast_at_time": "/forecast/:key/:latitude,:longitude,:time"
           },
           "status": "Not Found"
         }
