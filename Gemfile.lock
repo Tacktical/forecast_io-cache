@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    forecast_io-cache (0.0.2)
+    forecast_io-cache (0.0.4)
       forecast_io
       mongo_adaptor
       sinatra
