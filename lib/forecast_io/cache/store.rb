@@ -38,7 +38,7 @@ module Forecast
           end
 
           def index_error? error
-            error.message =~ /can't find any special indices/
+            error.message =~ /can't find any special indices/ || error.message =~ /unable to find index/
           end
 
           def ensure_index!
