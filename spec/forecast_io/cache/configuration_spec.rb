@@ -23,7 +23,7 @@ describe 'service configuration' do
   end
 
   it 'loads mongo config urls' do
-    Mongo::Configure.should_receive(:from_uri).with 'mongodb://example.com'
+    expect(Mongo::Configure).to receive(:from_uri).with 'mongodb://example.com'
     config.mongo_uri 'mongodb://example.com'
   end
 

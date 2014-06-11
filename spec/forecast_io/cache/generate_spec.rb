@@ -11,26 +11,26 @@ describe 'generating new cached results' do
   end
 
   before do
-    Forecast::IO::Cache::ForecastData.stub(:generate) { |lat,lon,data| send data }
-    cache.stub(:store) { |data| data }
+    allow(Forecast::IO::Cache::ForecastData).to receive(:generate) { |lat,lon,data| send data }
+    allow(cache).to receive(:store) { |data| data }
   end
 
   it 'gets the forecast from the api' do
-    api.should_receive(:forecast).with(lat,lon,time: time)
+    expect(api).to receive(:forecast).with(lat,lon,time: time)
     generate.forecasts
   end
 
   it 'generate forecase data objects' do
-    Forecast::IO::Cache::ForecastData.should_receive(:generate).with(lat,lon,"data_1")
-    Forecast::IO::Cache::ForecastData.should_receive(:generate).with(lat,lon,"data_2")
-    Forecast::IO::Cache::ForecastData.should_receive(:generate).with(lat,lon,"data_3")
+    expect(Forecast::IO::Cache::ForecastData).to receive(:generate).with(lat,lon,"data_1")
+    expect(Forecast::IO::Cache::ForecastData).to receive(:generate).with(lat,lon,"data_2")
+    expect(Forecast::IO::Cache::ForecastData).to receive(:generate).with(lat,lon,"data_3")
     generate.forecasts
   end
 
   it 'stores the current forecast and all the hourlies' do
-    cache.should_receive(:store).with(data_1)
-    cache.should_receive(:store).with(data_2)
-    cache.should_receive(:store).with(data_3)
+    expect(cache).to receive(:store).with(data_1)
+    expect(cache).to receive(:store).with(data_2)
+    expect(cache).to receive(:store).with(data_3)
     generate.forecasts
   end
 

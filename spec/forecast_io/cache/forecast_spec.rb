@@ -9,10 +9,10 @@ describe 'producing a forecast' do
   end
 
   context 'when cached data exists' do
-    before { store.stub(:fetch).and_return data }
+    before { allow(store).to receive(:fetch).and_return data }
 
     it 'checks the store for a previous cached result' do
-      store.should_receive(:fetch).with(lat, lon, time)
+      expect(store).to receive(:fetch).with(lat, lon, time)
       forecast.for lat, lon, time
     end
 
@@ -23,13 +23,13 @@ describe 'producing a forecast' do
 
   context 'when cached data doesnt exist' do
     before do
-      generate.stub(:for).and_return data
-      store.stub(:fetch)
+      allow(generate).to receive(:for).and_return data
+      allow(store).to receive(:fetch)
     end
 
     it 'checks the store for a previous cached result but then calls the generate' do
-      store.should_receive(:fetch).with(lat, lon, time)
-      generate.should_receive(:for).with(lat, lon, time, store)
+      expect(store).to receive(:fetch).with(lat, lon, time)
+      expect(generate).to receive(:for).with(lat, lon, time, store)
       forecast.for lat, lon, time
     end
 
