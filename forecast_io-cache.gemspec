@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "forecast_io"
+  spec.add_runtime_dependency "forecast_io", '~> 1.1.0'
   spec.add_runtime_dependency "sinatra"
   spec.add_runtime_dependency "mongo_adaptor"
 
