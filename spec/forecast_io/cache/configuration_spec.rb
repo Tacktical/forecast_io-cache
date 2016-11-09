@@ -22,9 +22,11 @@ describe 'service configuration' do
     expect(config.timeframe).to eq 12
   end
 
-  it 'loads mongo config urls' do
-    expect(Mongo::Configure).to receive(:from_uri).with 'mongodb://example.com'
-    config.mongo_uri 'mongodb://example.com'
+  it 'loads db from db_uri' do
+    config.db_uri = 'postgres://localhost/forecast-test'
+    expect(config.db).to be_a Sequel::Database
+    expect(config.db.opts[:database]).to eq 'forecast-test'
+    expect(PGAdaptor.db).to eq config.db
   end
 
 end

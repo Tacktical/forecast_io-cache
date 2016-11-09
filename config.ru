@@ -5,7 +5,7 @@ ForecastIO.configure do |config|
 end
 
 Forecast::IO::Cache.configure do |config|
-  config.mongo_uri   ENV['MONGOHQ_URL']
+  config.db_uri    = ENV['DATABASE_URL']
   config.radius    = ENV['RADIUS'].to_f
   config.timeframe = ENV['TIMEFRAME'].to_i
 end

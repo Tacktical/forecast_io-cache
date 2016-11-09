@@ -1,11 +1,16 @@
-require './features/support/mongo'
+require './features/support/pg'
 module Fixtures
 
+  def db
+    @db ||= Sequel.connect 'postgres://localhost/forecast-test'
+  end
+
   def setup attrs = {}
-    MongoAdaptor.db.collection('forecasts').insert(
+    db[:forecasts].insert(
       {
         "time"         => 123456789,
-        "position"     => [151.238823,-33.857444],
+        "latitude"     => -33.857444,
+        "longitude"    => 151.238823,
         "wind_speed"   => 6.66,
         "wind_bearing" => 200,
         "humidity"     => 0.9,

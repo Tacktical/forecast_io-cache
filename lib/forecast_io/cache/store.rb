@@ -1,4 +1,4 @@
-require 'mongo_adaptor'
+require 'pg_adaptor'
 require 'forecast_io/cache/forecast_data'
 
 module Forecast
@@ -8,19 +8,23 @@ module Forecast
 
         def initialize config = Cache.configuration
           @config = config
-          @backend = MongoAdaptor.new('forecasts',ForecastData)
+          @backend = PGAdaptor.new('forecasts', ForecastData)
         end
 
         def fetch lat, lon, time
-          @backend.fetch 'position' => { '$near' => [lon,lat], '$maxDistance' => radius },
-                         'time' => { '$lt' => time+offset, '$gt' => time-offset }
-        rescue Mongo::OperationFailure => error
-          if index_error? error
-            ensure_index!
-            retry
-          else
-            raise
-          end
+          @backend.fetch Sequel.lit(<<-SQL),
+            time >= :start AND time <= :end AND earth_box(
+              ll_to_earth(:lat, :lon), :radius
+            ) @> ll_to_earth(
+              latitude,
+              longitude
+            )
+            SQL
+            start: time - offset,
+            end: time + offset,
+            lat: lat,
+            lon: lon,
+            radius: radius
         end
 
         def store forecast
@@ -28,22 +32,17 @@ module Forecast
           forecast
         end
 
-        private
-          def radius
-            @config.radius * (1/111.694)
-          end
+      private
 
-          def offset
-            @config.timeframe*60
-          end
+        def radius
+          # nm to m
+          @config.radius * 1852
+        end
 
-          def index_error? error
-            error.message =~ /can't find any special indices/ || error.message =~ /unable to find index/
-          end
+        def offset
+          @config.timeframe * 60
+        end
 
-          def ensure_index!
-            MongoAdaptor.db.collection('forecasts').ensure_index position: Mongo::GEO2D
-          end
       end
     end
   end

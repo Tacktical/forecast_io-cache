@@ -21,8 +21,8 @@ Then "I am given the cached forecast" do
   expect_ok { get @path }
   expect(parsed_response).to eq({
     "time"         => 123456789,
-    "latitude"     => @position[1],
-    "longitude"    => @position[0],
+    "latitude"     => @latitude,
+    "longitude"    => @longitude,
     "wind_speed"   => 6.66,
     "wind_bearing" => 200,
     "humidity"     => 0.9,

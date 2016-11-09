@@ -1,4 +1,4 @@
-require 'mongo-configure'
+require 'pg_adaptor'
 
 module Forecast
   module IO
@@ -6,6 +6,7 @@ module Forecast
       class Configuration
 
         attr_writer :radius, :timeframe
+        attr_reader :db_uri, :db
 
         def radius
           @radius ||= 5
@@ -15,8 +16,10 @@ module Forecast
           @timeframe ||= 60
         end
 
-        def mongo_uri uri
-          Mongo::Configure.from_uri uri
+        def db_uri= value
+          @db_uri = value
+          @db = PGAdaptor.db = Sequel.connect(db_uri)
+          value
         end
 
       end

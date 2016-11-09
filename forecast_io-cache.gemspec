@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "forecast_io", '~> 2.0.1'
   spec.add_runtime_dependency "sinatra"
-  spec.add_runtime_dependency "mongo_adaptor"
+  spec.add_runtime_dependency "pg_adaptor"
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
@@ -28,9 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "cucumber"
   spec.add_development_dependency "rack-test"
   spec.add_development_dependency "vcr"
-
-  spec.add_development_dependency "mongo"
-  spec.add_development_dependency "bson"
-  spec.add_development_dependency "bson_ext"
 
 end

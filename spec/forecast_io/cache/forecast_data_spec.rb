@@ -24,7 +24,8 @@ describe 'representing data from the api' do
     expect(forecast.time).to eq time
   end
   it "exposes position" do
-    expect(forecast.position).to eq [-1.2, 1.1]
+    expect(forecast.latitude).to eq 1.1
+    expect(forecast.longitude).to eq -1.2
   end
   it "exposes wind_speed" do
     expect(forecast.wind_speed).to eq wind_speed
