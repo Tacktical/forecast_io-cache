@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    forecast_io-cache (1.0.0)
+    forecast_io-cache (2.0.0)
       forecast_io (~> 2.0.1)
       pg_adaptor
       sinatra
