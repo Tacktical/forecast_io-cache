@@ -15,5 +15,8 @@ Sequel.migration do
       column :visibility,   Float
       column :temperature,  Float
     end
+    execute <<-SQL
+      CREATE INDEX forecast_lookup ON forecasts USING gist(ll_to_earth(latitude, longitude));
+    SQL
   end
 end
