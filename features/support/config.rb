@@ -1,6 +1,6 @@
 require 'bson'
 
-Forecast::IO.configure do |config|
+ForecastIO.configure do |config|
   config.api_key = ENV['API_KEY']
 end
 

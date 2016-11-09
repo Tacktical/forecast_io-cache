@@ -9,7 +9,7 @@ module Forecast
           new(lat, lon, time, cache).forecasts.first
         end
 
-        def initialize lat, lon, time, cache, api = ::Forecast::IO
+        def initialize lat, lon, time, cache, api = ::ForecastIO
           @lat, @lon, @time, @cache, @api = lat, lon, time, cache, api
         end
 

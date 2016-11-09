@@ -1,6 +1,6 @@
 require 'forecast_io-cache'
 
-Forecast::IO.configure do |config|
+ForecastIO.configure do |config|
   config.api_key = ENV['API_KEY']
 end
 

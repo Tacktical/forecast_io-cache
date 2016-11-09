@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.forecast.io/forecast/API_KEY/-33.857444,151.238823,123456789
+    uri: https://api.darksky.net/forecast/API_KEY/-33.857444,151.238823,123456789
     body:
       encoding: US-ASCII
       string: ''
