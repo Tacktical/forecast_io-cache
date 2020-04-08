@@ -12,7 +12,7 @@ module Forecast
         end
 
         def fetch lat, lon, time
-          @backend.fetch Sequel.lit(<<-SQL),
+          @backend.fetch Sequel.lit(<<-SQL, start: time - offset, end: time + offset, lat: lat, lon: lon, radius: radius)
             time >= :start AND time <= :end AND earth_box(
               ll_to_earth(:lat, :lon), :radius
             ) @> ll_to_earth(
@@ -20,11 +20,6 @@ module Forecast
               longitude
             )
             SQL
-            start: time - offset,
-            end: time + offset,
-            lat: lat,
-            lon: lon,
-            radius: radius
         end
 
         def store forecast
