@@ -48,7 +48,7 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
-    forecast_io (2.0.1)
+    forecast_io (2.0.2)
       faraday
       hashie
       multi_json
