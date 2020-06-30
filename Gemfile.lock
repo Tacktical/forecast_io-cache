@@ -52,7 +52,7 @@ GEM
       faraday
       hashie
       multi_json
-    hashie (3.4.6)
+    hashie (4.1.0)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     middleware (0.1.0)
