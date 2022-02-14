@@ -80,12 +80,7 @@ GEM
     pg_adaptor (0.0.12)
       pg
       sequel
-    protobuf-cucumber (3.10.8)
-      activesupport (>= 3.2)
-      middleware
-      thor
-      thread_safe
-    puma (5.5.2)
+    puma (5.6.2)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-protection (2.1.0)
